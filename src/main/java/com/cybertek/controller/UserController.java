@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public String insertUser(UserDTO user) {
+    public String insertUser(UserDTO user) throws TicketingProjectException {
         userService.save(user);
         return "redirect:/user/create";
     }
