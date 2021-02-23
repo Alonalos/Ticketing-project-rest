@@ -1,1 +1,1 @@
-# Spring-mvc
+# Spring-rest
