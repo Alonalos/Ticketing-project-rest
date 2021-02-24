@@ -1,6 +1,6 @@
 package com.cybertek.exception;
 
-import com.cybertek.entity.DefaultExceptionMessageDto;
+import com.cybertek.dto.DefaultExceptionMessageDto;
 import com.cybertek.entity.ResponseWrapper;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;

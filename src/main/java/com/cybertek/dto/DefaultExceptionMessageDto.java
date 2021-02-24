@@ -1,4 +1,4 @@
-package com.cybertek.entity;
+package com.cybertek.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @Builder
 public class DefaultExceptionMessageDto {
-    private String message;
 
+    private String message;
 }
