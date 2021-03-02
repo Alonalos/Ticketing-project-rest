@@ -102,40 +102,6 @@ public class UserController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private MailDTO createEmail(UserDTO userDTO){
 
         User user = mapperUtil.convert(userDTO,new User());

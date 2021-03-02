@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.annotation.DefaultExceptionMessage;
+import com.cybertek.annotation.ExecutionTime;
 import com.cybertek.dto.UserDTO;
 import com.cybertek.entity.ConfirmationToken;
 import com.cybertek.entity.ResponseWrapper;
@@ -8,7 +9,6 @@ import com.cybertek.entity.User;
 import com.cybertek.entity.common.AuthenticationRequest;
 import com.cybertek.exception.TicketingProjectException;
 import com.cybertek.util.MapperUtil;
-
 import com.cybertek.service.ConfirmationTokenService;
 import com.cybertek.service.UserService;
 import com.cybertek.util.JWTUtil;
@@ -42,6 +42,7 @@ public class LoginController {
     @PostMapping("/authenticate")
     @DefaultExceptionMessage(defaultMessage = "Bad Credentials")
     @Operation(summary = "Login to application")
+    @ExecutionTime
     public ResponseEntity<ResponseWrapper> doLogin(@RequestBody AuthenticationRequest authenticationRequest) throws TicketingProjectException, AccessDeniedException {
 
         String password = authenticationRequest.getPassword();
@@ -53,7 +54,7 @@ public class LoginController {
         UserDTO foundUser = userService.findByUserName(username);
         User convertedUser = mapperUtil.convert(foundUser,new User());
 
-        if(!foundUser.getEnabled()){
+        if(!foundUser.isEnabled()){
             throw new TicketingProjectException("Please verify your user");
         }
 
@@ -86,5 +87,4 @@ public class LoginController {
 
 
 }
-
 

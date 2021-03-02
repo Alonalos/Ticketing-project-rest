@@ -99,7 +99,7 @@ public class TaskController {
 
     @PutMapping("/employee/update")
     @DefaultExceptionMessage(defaultMessage = "Something went wrong,please try again!")
-    @Operation(summary = "Read all non complete tasks")
+    @Operation(summary = "Update employee task status")
     @PreAuthorize("hasAuthority('Manager')")
     public ResponseEntity<ResponseWrapper> employeeUpdateTask(@RequestBody TaskDTO taskDTO) throws TicketingProjectException {
         TaskDTO task=taskService.updateStatus(taskDTO);

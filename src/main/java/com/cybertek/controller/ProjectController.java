@@ -63,7 +63,7 @@ public class ProjectController {
     @PreAuthorize("hasAnyAuthority('Admin','Manager')")
     public ResponseEntity<ResponseWrapper> create(@RequestBody ProjectDTO projectDTO) throws TicketingProjectException {
         ProjectDTO createdProject = projectService.save(projectDTO);
-        return ResponseEntity.ok(new ResponseWrapper("Project is retrieved",projectDTO));
+        return ResponseEntity.ok(new ResponseWrapper("Project is created",projectDTO));
     }
 
     @PutMapping

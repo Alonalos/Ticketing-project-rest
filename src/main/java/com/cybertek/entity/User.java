@@ -1,28 +1,29 @@
 package com.cybertek.entity;
 
 import com.cybertek.enums.Gender;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
-@Where(clause = "is_deleted=false") //automatically adds 'isDeletedFalse' to each query (see BaseEntity)
-@JsonIgnoreProperties(value={"hibernateLazyInitializer"},ignoreUnknown = true)
+@Where(clause = "is_deleted=false")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
+
     private String firstName;
     private String lastName;
     private String userName;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String passWord;
     private Boolean enabled;
@@ -34,7 +35,6 @@ public class User extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
-
 
 }
 
