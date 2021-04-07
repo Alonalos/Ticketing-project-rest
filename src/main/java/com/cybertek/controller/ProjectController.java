@@ -30,6 +30,7 @@ import java.util.stream.Collectors;
 public class ProjectController {
 
 
+
     private ProjectService projectService;
     private UserService userService;
 
@@ -45,7 +46,7 @@ public class ProjectController {
     @PreAuthorize("hasAnyAuthority('Admin','Manager')")
     public ResponseEntity<ResponseWrapper> readAll(){
         List<ProjectDTO> projectDTOS = projectService.listAllProjects();
-        return ResponseEntity.ok(new ResponseWrapper("Project are retrieved",projectDTOS));
+        return ResponseEntity.ok(new ResponseWrapper("Projects are retrieved",projectDTOS));
     }
 
     @GetMapping("/{projectcode}")
